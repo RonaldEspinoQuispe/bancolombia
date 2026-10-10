@@ -1,17 +1,41 @@
 # Gradle
 .gradle/
 build/
-# Reportes
+
+# Java
+*.class
+*.log
+hs_err_pid*
+
+# Reportes y resultados de pruebas
 target/
-# IDE
+serenity-reports/
+history/
+
+# IntelliJ IDEA
 .idea/
 *.iml
 out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Visual Studio Code
 .vscode/
-# SO
+
+# Archivos del sistema operativo
 .DS_Store
 Thumbs.db
-# Secretos
+Desktop.ini
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+
+# Variables de entorno y credenciales
 .env
 .env.*
 !.env.example
