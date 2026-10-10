@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '4.2.34'
+}
+
+group = 'com.bancolombia'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '4.2.34'
+    cucumberVersion = '7.20.1'
+}
+
+dependencies {
+    implementation  "net.serenity-bdd:serenity-core:${serenityVersion}"
+    implementation  "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+    implementation  "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
+    implementation  "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
+
+    implementation  "io.cucumber:cucumber-java:${cucumberVersion}"
+    implementation  "io.cucumber:cucumber-junit:${cucumberVersion}"
+
+    implementation 'junit:junit:4.13.2'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnit()
+    systemProperty 'cucumber.plugin', 'pretty'
+
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
+
+    finalizedBy 'aggregate'
+}
+
+serenity {
+    reports = ['single-page-html']
+}
