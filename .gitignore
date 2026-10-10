@@ -1,35 +1,17 @@
-Gradle
-
-.gradle/ build/
-
-Java
-
-.class .log hserrpid*
-
-Reportes y resultados de pruebas
-
-target/ serenity-reports/
-
-IntelliJ IDEA
-
-.idea/ *.iml out/
-
-Eclipse
-
-.classpath .project .settings/
-
-Visual Studio Code
-
+# Gradle
+.gradle/
+build/
+# Reportes
+target/
+# IDE
+.idea/
+*.iml
+out/
 .vscode/
-
-Archivos del sistema operativo
-
-.DS_Store Thumbs.db Desktop.ini
-
-Archivos temporales
-
-.tmp .bak *.swp
-
-Variables de entorno y credenciales
-
-.env .env.* !.env.example
+# SO
+.DS_Store
+Thumbs.db
+# Secretos
+.env
+.env.*
+!.env.example
